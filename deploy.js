@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 }
 
 
-const rest = new REST({ version: '10' }).setToken("NzU3MjA0ODUwNTE2OTUxMTAx.GxlDFj.BTxLmP98o1b6C21lUBpP24UlvYxgM90NOqEVPo");
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 
 (async () => {
@@ -30,7 +30,7 @@ const rest = new REST({ version: '10' }).setToken("NzU3MjA0ODUwNTE2OTUxMTAx.GxlD
         process.stdout.write(colors.brightYellow('⚠  ')+colors.brightGreen('Processing...'));
 
 		const data = await rest.put(
-			Routes.applicationGuildCommands("757204850516951101", "991342523454869564"),
+			Routes.applicationCommands("757204850516951101"),
 			{ body: commands },
 		);
 
