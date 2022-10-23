@@ -6,3 +6,13 @@ sleekcmd.register({
     intents: ["Guilds"],
     client_id: "757204850516951101"
 })
+
+const express = require('express')
+
+const app = express()
+
+app.get('/', (req,res) => {
+    res.json({ status: "Online" })
+})
+
+app.listen(80)
