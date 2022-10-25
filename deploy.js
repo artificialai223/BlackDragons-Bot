@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 }
 
 
-const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN || require('./config.json').token);
 
 
 (async () => {
@@ -30,7 +30,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
         process.stdout.write(colors.brightYellow('⚠  ')+colors.brightGreen('Processing...'));
 
 		const data = await rest.put(
-			Routes.applicationCommands("757204850516951101"),
+			Routes.applicationGuildCommands("757204850516951101", "1016714830847156314"),
 			{ body: commands },
 		);
 
